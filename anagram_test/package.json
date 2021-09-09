@@ -1,0 +1,16 @@
+{
+  "name": "anagram",
+  "version": "1.0.0",
+  "description": "Exemple de tests avec Jest",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "coverage" : "npm test -- --coverage"
+  },
+  "author": "Nikolay Radoev",
+  "license": "CC-BY-3.0",
+  "devDependencies": {
+    "jest": "^27.1.1"
+  }
+}
