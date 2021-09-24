@@ -68,7 +68,7 @@ describe("Pencil tests", () => {
 
     it("onMouseUp() should set isDrawing to false", () => {
       pencil.isDrawing = true;
-      pencil.updateCurrentPoint = jest.fn(() => {}); // dont call the real method
+      pencil.updateCurrentPoint = jest.fn(() => {}); // contrairement à un mock, ceci remplace la fonction au complet
       pencil.onMouseUp(mousePosition);
       expect(pencil.isDrawing).toBeFalsy();
     });

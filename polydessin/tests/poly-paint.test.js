@@ -40,7 +40,7 @@ describe("PolyPaint tests", () => {
     it("should call onMouseDown method of the Tool on a mouse down event", () => {
       polyPaint.attachListeners();
       const mouseEventSpy = jest.spyOn(polyPaint.currentTool, "onMouseDown").mockImplementation(() => {});
-      polyPaint.canvas.dispatchEvent(new MouseEvent("mousedown"));
+      polyPaint.canvas.dispatchEvent(new MouseEvent("mousedown")); // simulation d'un événement
       expect(mouseEventSpy).toBeCalled();
     });
 

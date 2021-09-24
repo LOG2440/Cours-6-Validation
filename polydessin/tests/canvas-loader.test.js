@@ -7,7 +7,7 @@ describe("Canvas-loader tests", () => {
   const clearHTML = () => (document.body.innerHTML = "");
 
   beforeEach(() => {
-    // Create canvas on mock Document object
+    // Creation du cavans sur le document (on utilise un mock fourni par Jest)
     canvas = document.createElement("canvas");
     canvas.setAttribute("id", "base-canvas");
     document.body.appendChild(canvas);
