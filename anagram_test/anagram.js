@@ -11,22 +11,23 @@ function anagram(firstSequence, secondSequence) {
     return false;
   }
 
-  let sortedFirstSequence = Array.from(firstSequence).sort().toString();
-  let sortedSecondSequence = Array.from(secondSequence).sort().toString();
+  const sortedFirstSequence = Array.from(firstSequence).sort().toString();
+  const sortedSecondSequence = Array.from(secondSequence).sort().toString();
   return sortedFirstSequence === sortedSecondSequence;
 }
 
 // Refactor
+/* 
+function Anagram() {
+  function sortString(s) {
+    return Array.from(s).sort().toString();
+  }
 
-// function Anagram() {
-//   function sortString(s) {
-//     return Array.from(s).sort().toString();
-//   }
+  return function anagram(firstSequence, secondSequence) {
+    return sortString(firstSequence) === sortString(secondSequence);
+  };
+}
 
-//   return function anagram(firstSequence, secondSequence) {
-//     return sortString(firstSequence) === sortString(secondSequence);
-//   };
-// }
-
-// const anagram = Anagram();
+const anagram = Anagram();
+*/
 module.exports = anagram;
