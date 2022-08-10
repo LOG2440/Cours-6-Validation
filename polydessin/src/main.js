@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import loadCanvas from "./canvas-loader.js";
 import Pencil from "./pencil.js";
 import PolyPaint from "./poly-paint.js";
