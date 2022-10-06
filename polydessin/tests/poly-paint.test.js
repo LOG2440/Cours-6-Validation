@@ -25,6 +25,7 @@ describe("PolyPaint tests", () => {
     document.body.appendChild(colorInput);
 
     polyPaint = new PolyPaint(canvas, [toolStub]);
+    polyPaint.attachListeners();
   });
 
   afterEach(() => {
@@ -38,21 +39,18 @@ describe("PolyPaint tests", () => {
 
   describe("Mouse Events", () => {
     it("should call onMouseDown method of the Tool on a mouse down event", () => {
-      polyPaint.attachListeners();
       const mouseEventSpy = jest.spyOn(polyPaint.currentTool, "onMouseDown").mockImplementation(() => {});
       polyPaint.canvas.dispatchEvent(new MouseEvent("mousedown")); // simulation d'un événement
       expect(mouseEventSpy).toBeCalled();
     });
 
     it("should call onMouseUp method of the Tool on a mouse up event", () => {
-      polyPaint.attachListeners();
       const mouseEventSpy = jest.spyOn(polyPaint.currentTool, "onMouseUp").mockImplementation(() => {});
       polyPaint.canvas.dispatchEvent(new MouseEvent("mouseup"));
       expect(mouseEventSpy).toBeCalled();
     });
 
     it("should call onMouseMove method of the Tool on a mouse move event", () => {
-      polyPaint.attachListeners();
       const mouseEventSpy = jest.spyOn(polyPaint.currentTool, "onMouseMove").mockImplementation(() => {});
       polyPaint.canvas.dispatchEvent(new MouseEvent("mousemove"));
       expect(mouseEventSpy).toBeCalled();
@@ -61,7 +59,6 @@ describe("PolyPaint tests", () => {
 
   describe("Change Events", () => {
     it("should call changeWidth method of the Tool on a valid width change", () => {
-      polyPaint.attachListeners();
       const changeEventSpy = jest.spyOn(polyPaint.currentTool, "changeWidth").mockImplementation(() => {});
       const input = document.getElementById("input-width");
       input.value = 10;
@@ -70,7 +67,6 @@ describe("PolyPaint tests", () => {
     });
 
     it("should not call changeWidth method of the Tool on an invalid width change", () => {
-      polyPaint.attachListeners();
       const changeEventSpy = jest.spyOn(polyPaint.currentTool, "changeWidth").mockImplementation(() => {});
       const input = document.getElementById("input-width");
       input.value = 12;
@@ -79,7 +75,6 @@ describe("PolyPaint tests", () => {
     });
 
     it("should call changeColor method of the Tool on a valid color change", () => {
-      polyPaint.attachListeners();
       const changeEventSpy = jest.spyOn(polyPaint.currentTool, "changeColor").mockImplementation(() => {});
       const input = document.getElementById("input-color");
       input.value = "#00ff00";
@@ -88,7 +83,6 @@ describe("PolyPaint tests", () => {
     });
 
     it("should not call changeColor method of the Tool on an invalid color change", () => {
-      polyPaint.attachListeners();
       const changeEventSpy = jest.spyOn(polyPaint.currentTool, "changeColor").mockImplementation(() => {});
       const input = document.getElementById("input-color");
       input.value = "allo";
