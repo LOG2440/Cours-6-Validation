@@ -40,7 +40,7 @@ describe("Pencil tests", () => {
 
     it("onMouseMove() should call updateCurrentPoint if isDrawing is true", () => {
       pencil.isDrawing = true;
-      // Dont actually call the real function
+      // Ne pas faire appel à la vrai fonction, mais à un Mock
       const updateCurrentPointSpy = jest.spyOn(pencil, "updateCurrentPoint").mockImplementation(() => {});
 
       pencil.onMouseMove(mousePosition);
@@ -58,7 +58,6 @@ describe("Pencil tests", () => {
 
     it("onMouseUp() should call updateCurrentPoint if isDrawing is true", () => {
       pencil.isDrawing = true;
-      // Dont actually call the real function
       const updateCurrentPointSpy = jest.spyOn(pencil, "updateCurrentPoint").mockImplementation(() => {});
 
       pencil.onMouseUp(mousePosition);
@@ -89,8 +88,8 @@ describe("Pencil tests", () => {
       jest.spyOn(pencil, "getPositionFromMouse").mockImplementation(() => {
         return { x: newMouseStub.offsetX, y: newMouseStub.offsetY };
       });
-      // Ne pas appeler la vraie méthode draw()
-      const drawSpy = jest.spyOn(pencil, "draw").mockImplementation(() => {});
+      // Enlever la dépendance à la vraie méthode draw()
+      jest.spyOn(pencil, "draw").mockImplementation(() => {});
 
       const newMousePosition = { x: 100, y: 100 };
 
