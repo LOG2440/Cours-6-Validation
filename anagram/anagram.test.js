@@ -28,3 +28,10 @@ describe("Anagram tests", () => {
     expect(anagram("Hello", "Hello")).toBeTruthy();
   });
 });
+
+describe("Anagram exercice", () => {
+  test("TODO : case sensative", () => { });
+
+  test("TODO: null parameters", () => { });
+
+});
