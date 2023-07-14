@@ -18,7 +18,7 @@ Chaque test dans la suite est exécuté avec la fonction `test` ou `it` et prend
 
 L'échaufaudage des tests est une technique qui permet de configurer un envrionnement avant les tests et le nettoyer après les tests. Jest utilise les fonctions `before` et `after` qui contiennent du code qui est exécuté au début et à la fin d'une suite de tests. Il est également possible d'utiliser `beforeEach` et `afterEach` qui sont exécutées avant et après chaque test. Ceci permet de bien isoler les tests un de l'autre et éviter qu'un test impact le fonctionnement d'un autre.
 
-### Exemple  de syntaxe :
+### Exemple de syntaxe :
 
 Cet exemple est tiré de [canvas-loader.test.js](./polydessin/tests/canvas-loader.test.js) du projet `Poly Dessin` et qui illustre toutes les étapes d'une suite de tests.
 
@@ -101,10 +101,10 @@ La majorité des tests peuvent être classés en 2 types : `boîte blanche` et `
 
 Un test en boîte noire se concentre seulement sur la relation entre les entrées et les sorties d'une partie du système. Les entrées/sorties peuvent être aussi des comportements et pas seulement les paramètres/sorties d'une fonction. Le test en boîte noire ne s'intéresse pas au fonctionnement interne du code et, idéalement, devrait l'ignorer. 
 
-Le [premier exemple](#exemple-de-syntaxe) dans ce fichier est un exemple de test de boîte noire où on vérifie si la sortie de la fonction `loadCanvas()` correspond à nos attentes en fonction de l'état initial du HTML de la page.
+Le [premier exemple](#exemple-de-syntaxe-) dans ce fichier est un exemple de test de boîte noire où on vérifie si la sortie de la fonction `loadCanvas()` correspond à nos attentes en fonction de l'état initial du HTML de la page.
 
 ### Boîte blanche
 
 Un test en boîte blanche se concentre sur le fonctionnement interne du code et doit connaître les détails d'implémentation du code. Les tests unitaires sont souvent des tests en boîte blanche et plus les tests sont haut niveau, plus les tests en boîte blanche sont rares dû à la compléxité relative du code.
 
-Les [exemples de _spy_ et _mock_](#exemple-de-spy-et-mock) sont des exemples de tests de boîte blanche où on vérifie qu'une fonction spécifique a été appelée ou non en fonction de la configuration du test.
+Les [exemples de _spy_ et _mock_](#exemple-de-spy-et-mock-) sont des exemples de tests de boîte blanche où on vérifie qu'une fonction spécifique a été appelée ou non en fonction de la configuration du test.
