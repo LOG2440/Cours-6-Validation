@@ -1,4 +1,5 @@
 const anagram = require("./anagram");
+// const anagram = require("./anagram_refactor");
 
 describe("Anagram tests", () => {
   test("anagram function exists", () => {
@@ -26,4 +27,11 @@ describe("Anagram tests", () => {
   test('"Hello" should be an anagram of itself', () => {
     expect(anagram("Hello", "Hello")).toBeTruthy();
   });
+});
+
+describe("Anagram exercice", () => {
+  test("TODO : case sensative", () => { });
+
+  test("TODO: null parameters", () => { });
+
 });
