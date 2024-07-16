@@ -50,7 +50,7 @@ describe("Canvas-loader tests", () => {
 
 ## Stub, Mock et Spy
 
-Lors de l'écriture des tests unitaires, on doit s'assurer de ne pas avoir des dépendances qui peuvent influencer le comportement de l'unité testée. Ces dépendances devront être remplacés par des _Stub_  ou des _Mock_ : code dont le comportement est prédéterminé.
+Lors de l'écriture des tests unitaires, on doit s'assurer de ne pas avoir des dépendances qui peuvent influencer le comportement de l'unité testée. Ces dépendances devront être remplacés par des _Stub_ ou des _Mock_ : code dont le comportement est prédéterminé.
 ### Exemple de Stub:
 
 Cet exemple est tiré de [poly-paint.test.js](./polydessin/tests/poly-pain.test.js) du projet `Poly Dessin` :
@@ -95,11 +95,11 @@ it("should call changeWidth method of the Tool on a valid width change", () => {
 
 ## Tests en boîte blanche et boîte noire
 
-La majorité des tests peuvent être classés en 2 types : `boîte blanche` et `boîte noire`. 
+La majorité des tests peuvent être classés en 2 types : `boîte blanche` et `boîte noire`. Ces deux types de tests ont des objectifs différents et peuvent être utilisés en fonction de la complexité du code et des besoins de tests.
 
 ### Boîte noire
 
-Un test en boîte noire se concentre seulement sur la relation entre les entrées et les sorties d'une partie du système. Les entrées/sorties peuvent être aussi des comportements et pas seulement les paramètres/sorties d'une fonction. Le test en boîte noire ne s'intéresse pas au fonctionnement interne du code et, idéalement, devrait l'ignorer. 
+Un test en boîte noire se concentre seulement sur la relation entre les entrées et les sorties d'une partie du système. Les entrées/sorties peuvent être aussi des comportements et pas seulement les paramètres/sorties d'une fonction. Le test en boîte noire ne s'intéresse pas au fonctionnement interne du code et, idéalement, devrait l'ignorer.
 
 Le [premier exemple](#exemple-de-syntaxe-) dans ce fichier est un exemple de test de boîte noire où on vérifie si la sortie de la fonction `loadCanvas()` correspond à nos attentes en fonction de l'état initial du HTML de la page.
 
