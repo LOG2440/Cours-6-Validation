@@ -43,19 +43,19 @@ describe("PolyPaint tests", () => {
     it("should call onMouseDown method of the Tool on a mouse down event", () => {
       const mouseEventSpy = jest.spyOn(polyPaint.currentTool, "onMouseDown").mockImplementation(() => { });
       polyPaint.canvas.dispatchEvent(new MouseEvent("mousedown")); // simulation d'un événement
-      expect(mouseEventSpy).toBeCalled();
+      expect(mouseEventSpy).toHaveBeenCalled();
     });
 
     it("should call onMouseUp method of the Tool on a mouse up event", () => {
       const mouseEventSpy = jest.spyOn(polyPaint.currentTool, "onMouseUp").mockImplementation(() => { });
       polyPaint.canvas.dispatchEvent(new MouseEvent("mouseup"));
-      expect(mouseEventSpy).toBeCalled();
+      expect(mouseEventSpy).toHaveBeenCalled();
     });
 
     it("should call onMouseMove method of the Tool on a mouse move event", () => {
       const mouseEventSpy = jest.spyOn(polyPaint.currentTool, "onMouseMove").mockImplementation(() => { });
       polyPaint.canvas.dispatchEvent(new MouseEvent("mousemove"));
-      expect(mouseEventSpy).toBeCalled();
+      expect(mouseEventSpy).toHaveBeenCalled();
     });
   });
 
@@ -65,7 +65,7 @@ describe("PolyPaint tests", () => {
       const input = document.getElementById("input-width");
       input.value = 10;
       input.dispatchEvent(new Event("change"));
-      expect(changeEventSpy).toBeCalled();
+      expect(changeEventSpy).toHaveBeenCalled();
     });
 
     it("should not call changeWidth method of the Tool on an invalid width change", () => {
@@ -73,7 +73,7 @@ describe("PolyPaint tests", () => {
       const input = document.getElementById("input-width");
       input.value = 12;
       input.dispatchEvent(new Event("change"));
-      expect(changeEventSpy).not.toBeCalled();
+      expect(changeEventSpy).not.toHaveBeenCalled();
     });
 
     it("should call changeColor method of the Tool on a valid color change", () => {
@@ -81,7 +81,7 @@ describe("PolyPaint tests", () => {
       const input = document.getElementById("input-color");
       input.value = "#00ff00";
       input.dispatchEvent(new Event("change"));
-      expect(changeEventSpy).toBeCalled();
+      expect(changeEventSpy).toHaveBeenCalled();
     });
 
     it("should not call changeColor method of the Tool on an invalid color change", () => {
@@ -89,7 +89,7 @@ describe("PolyPaint tests", () => {
       const input = document.getElementById("input-color");
       input.value = "allo";
       input.dispatchEvent(new Event("change"));
-      expect(changeEventSpy).not.toBeCalled();
+      expect(changeEventSpy).not.toHaveBeenCalled();
     });
   });
 
@@ -118,8 +118,11 @@ describe("PolyPaint tests", () => {
   describe("Integration and System Tests", () => {
 
     function configureEvent(type, x, y) {
-      const event = new MouseEvent(type);
-      [event.offsetX, event.offsetY] = [x, y];
+      const event = new MouseEvent(type, {
+        clientX: x,
+        clientY: y
+      }
+      );
       return event;
     }
 

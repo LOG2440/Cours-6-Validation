@@ -44,8 +44,8 @@ describe("Pencil tests", () => {
       const updateCurrentPointSpy = jest.spyOn(pencil, "updateCurrentPoint").mockImplementation(() => {});
 
       pencil.onMouseMove(mousePosition);
-      expect(updateCurrentPointSpy).toBeCalled();
-      expect(updateCurrentPointSpy).toBeCalledWith({ x: mousePosition.x, y: mousePosition.y });
+      expect(updateCurrentPointSpy).toHaveBeenCalled();
+      expect(updateCurrentPointSpy).toHaveBeenCalledWith({ x: mousePosition.x, y: mousePosition.y });
     });
 
     it("onMouseMove() should not call updateCurrentPoint if isDrawing is false", () => {
@@ -53,7 +53,7 @@ describe("Pencil tests", () => {
       const updateCurrentPointSpy = jest.spyOn(pencil, "updateCurrentPoint").mockImplementation(() => {});
 
       pencil.onMouseMove(mousePosition);
-      expect(updateCurrentPointSpy).not.toBeCalled();
+      expect(updateCurrentPointSpy).not.toHaveBeenCalled();
     });
 
     it("onMouseUp() should call updateCurrentPoint if isDrawing is true", () => {
@@ -61,8 +61,8 @@ describe("Pencil tests", () => {
       const updateCurrentPointSpy = jest.spyOn(pencil, "updateCurrentPoint").mockImplementation(() => {});
 
       pencil.onMouseUp(mousePosition);
-      expect(updateCurrentPointSpy).toBeCalled();
-      expect(updateCurrentPointSpy).toBeCalledWith({ x: mousePosition.x, y: mousePosition.y });
+      expect(updateCurrentPointSpy).toHaveBeenCalled();
+      expect(updateCurrentPointSpy).toHaveBeenCalledWith({ x: mousePosition.x, y: mousePosition.y });
     });
 
     it("onMouseUp() should set isDrawing to false", () => {
@@ -77,7 +77,7 @@ describe("Pencil tests", () => {
       const updateCurrentPointSpy = jest.spyOn(pencil, "updateCurrentPoint").mockImplementation(() => {});
 
       pencil.onMouseUp(mousePosition);
-      expect(updateCurrentPointSpy).not.toBeCalled();
+      expect(updateCurrentPointSpy).not.toHaveBeenCalled();
     });
   });
 
@@ -102,8 +102,8 @@ describe("Pencil tests", () => {
       const drawSpy = jest.spyOn(pencil, "draw").mockImplementation(() => {});
 
       pencil.updateCurrentPoint(mousePosition);
-      expect(getPositionSpy).toBeCalled();
-      expect(drawSpy).toBeCalled();
+      expect(getPositionSpy).toHaveBeenCalled();
+      expect(drawSpy).toHaveBeenCalled();
     });
 
     it("draw() should call the correct context functions", () => {
@@ -116,15 +116,15 @@ describe("Pencil tests", () => {
 
       pencil.draw(pencil.context, start, end);
 
-      expect(beginPathSpy).toBeCalled();
+      expect(beginPathSpy).toHaveBeenCalled();
 
-      expect(moveToSpy).toBeCalled();
-      expect(moveToSpy).toBeCalledWith(start.x, start.y);
+      expect(moveToSpy).toHaveBeenCalled();
+      expect(moveToSpy).toHaveBeenCalledWith(start.x, start.y);
 
-      expect(lineToSpy).toBeCalled();
-      expect(lineToSpy).toBeCalledWith(end.x, end.y);
+      expect(lineToSpy).toHaveBeenCalled();
+      expect(lineToSpy).toHaveBeenCalledWith(end.x, end.y);
 
-      expect(strokeSpy).toBeCalled();
+      expect(strokeSpy).toHaveBeenCalled();
     });
 
   });
