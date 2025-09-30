@@ -81,7 +81,7 @@ it("should call changeWidth method of the Tool on a valid width change", () => {
       const input = document.getElementById("input-width");
       input.value = 10;
       input.dispatchEvent(new Event("change"));
-      expect(changeEventSpy).toBeCalled();
+      expect(changeEventSpy).toHaveBeenCalled();
     });
 
     it("should not call changeWidth method of the Tool on an invalid width change", () => {
@@ -89,7 +89,7 @@ it("should call changeWidth method of the Tool on a valid width change", () => {
       const input = document.getElementById("input-width");
       input.value = 12;
       input.dispatchEvent(new Event("change"));
-      expect(changeEventSpy).not.toBeCalled();
+      expect(changeEventSpy).not.toHaveBeenCalled();
     });
 ```
 
