@@ -20,6 +20,20 @@ Les tests peuvent être exécutés à l'aide de la commande `npm run test` dans 
 
 La commande `npm run coverage` permet d'exécuter les tests et calculer le taux de couverture des tests (100% pour le code fourni). Le résultat de l'exécution sera visible directement dans le terminal. Un rapport en format HTML sera également généré dans le répertoire `coverage/lcov-report`. Notez que ce répertoire n'est pas présent par défaut et sera généré dès la 1re exécution de la commande.
 
+## Tests visuels avec Cypress
+
+Jest est un outil très pratique puisqu'il permet de tester le code sans avoir besoin d'un navigateur. Cependant, il ne permet pas de tester l'interface graphique du site web. Pour cela, nous utilisons la librairie [Cypress](https://www.cypress.io/) qui permet d'écrire des tests visuels pour les applications web.
+
+La commande `npm run cypress` permet d'ouvrir l'interface graphique de Cypress. Vous pouvez ensuite exécuter les tests visuels en cliquant sur le fichier de test désiré dans l'interface. Le résultat de l'exécution sera visible directement dans l'interface graphique.
+
+Les tests de `Poly Dessin` sont divisés en 2 fichiers : [polydessin-interface.cy.js](./cypress/e2e/polydessin-interface.cy.js) qui teste l'interface graphique du site web et [polydessin-drawing.cy.js](./cypress/e2e/polydessin-drawing.cy.js) qui teste la fonctionnalité de dessin du site web.
+
+Dans le cas du dessin, on simule les actions de l'utilisateur sur le canevas et on vérifie que les pixels du canevas sont modifiés en conséquence. Notez qu'il faut expliciter les valeurs de `offsetX` et `offsetY` pour simuler les mouvements de la souris sur le canevas. Ces valeurs sont relatives au coin supérieur gauche du canevas.
+
+### Exercice
+
+Le fichier [polydessin-tdd.cy.js](./cypress/e2e/polydessin-tdd.cy.js) contient un exemple de test TDD (Test Driven Development) pour la fonctionnalité de nettoyage du canevas. Le test est déjà écrit et il vous reste à implémenter la fonctionnalité dans le code source pour que le test passe.
+
 ## Déploiement du projet
 
 Le code JS utilise ESM pour la gestion des différents modules. Vous pouvez déployer le site avec un serveur statique local sur le port `3000` à travers la commande `npm start`. Le projet utilise la librairie `http-server` pour le serveur statique. 

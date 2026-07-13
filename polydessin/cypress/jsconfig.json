@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "types": ["cypress", "node"],
+    "lib": ["ES2022", "DOM"]
+  },
+  "include": ["**/*.js"]
+}
