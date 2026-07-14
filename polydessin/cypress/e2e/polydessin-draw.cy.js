@@ -1,4 +1,4 @@
-import { getPixel, drawLine, isCanvasEmpty, CANVAS_HEIGHT, CANVAS_WIDTH } from "./utils";
+import { getPixel, drawLine, isCanvasEmpty } from "./utils";
 
 describe("PolyDessin : Drawing", () => {
     beforeEach(() => {

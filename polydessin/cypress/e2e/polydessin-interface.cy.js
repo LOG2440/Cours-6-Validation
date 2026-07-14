@@ -1,5 +1,3 @@
-import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./utils";
-
 describe("PolyDessin : Interface", () => {
   beforeEach(() => {
     cy.visit("/");
